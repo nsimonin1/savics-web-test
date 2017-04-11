@@ -12,6 +12,7 @@ import javax.validation.Valid;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.UnknownHostException;
 
 /**
  * Created by simon on 11/04/2017.
@@ -62,6 +63,8 @@ public class StatuUrlController {
 
             int code = connection.getResponseCode();
             return code;
+        }catch (UnknownHostException e) {
+            return 404;
         } catch (Exception e) {
            return -1;
         }
